@@ -18,7 +18,7 @@ ParticleAffectorColor::ParticleAffectorColor(Color* Start, Color* End)
 
 void ParticleAffectorColor::AffectParticleUpdate(float DeltaTime, ParticleObject* Particle)
 {
-	Color CurrentColor = *Particle->GetColor();
+	Color CurrentColor = *Particle->getColor();
 
 	float ParticleDeltaTime = DeltaTime / Particle->MaxLifetime;
 
@@ -29,5 +29,5 @@ void ParticleAffectorColor::AffectParticleUpdate(float DeltaTime, ParticleObject
 
 	Color* NewColor = new Color(CurrentColor.R, CurrentColor.G, CurrentColor.B, CurrentColor.A);
 
-	Particle->SetColor(NewColor);
+	Particle->setColor(NewColor);
 }

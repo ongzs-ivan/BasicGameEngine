@@ -1,8 +1,9 @@
-#pragma once
+#ifndef PARTICLEAFFECTORCOLOR_H
+#define PARTICLEAFFECTORCOLOR_H
+
 #include "ParticleAffector.h"
 
-class ParticleAffectorColor :
-    public ParticleAffector
+class ParticleAffectorColor : public ParticleAffector
 {
 protected:
     Color* StartColor;
@@ -14,4 +15,6 @@ public:
     void AffectParticleUpdate(float DeltaTime, ParticleObject* Particle) override;
 
 };
+
+#endif
 

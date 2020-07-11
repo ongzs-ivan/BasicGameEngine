@@ -1,4 +1,6 @@
-#pragma once
+#ifndef PARTICLESYSTEM_H
+#define PARTICLESYSTEM_H
+
 #include <list>
 #include "ParticleObject.h"
 #include "ParticleAffectorColor.h"
@@ -21,3 +23,5 @@ public:
 	void Update(float DeltaTime);
 	void Draw();
 };
+
+#endif

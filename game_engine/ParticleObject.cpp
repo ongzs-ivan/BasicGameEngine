@@ -24,8 +24,8 @@ void ParticleObject::Update(float DeltaTime)
 	Velocity = Velocity + (Acceleration * DeltaTime);
 
 	// Update the position
-	Vector2 NewPosition = GetPosition() + (Velocity * DeltaTime);
-	SetPosition(NewPosition);
+	Vector2 NewPosition = getPosition() + (Velocity * DeltaTime);
+	setPosition(NewPosition);
 
 	// Decrease the lifetime of particle every update
 	CurrentLifetime -= DeltaTime;

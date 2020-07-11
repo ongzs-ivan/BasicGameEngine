@@ -162,6 +162,7 @@
     <ClInclude Include="ParticleAffectorScale.h" />
     <ClInclude Include="ParticleObject.h" />
     <ClInclude Include="ParticleSystem.h" />
+    <ClInclude Include="ScreenRes.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="util\bitmap.h" />
     <ClInclude Include="util\Color.h" />

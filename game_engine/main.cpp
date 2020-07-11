@@ -3,14 +3,19 @@
 #include <gl/GLU.h>
 #include <stdlib.h>
 
+// Fmodex library
+//#include <fmod.hpp>
+//#include <fmod_errors.h>
+
 #include <iostream>
 #include <ctime>
 //#include <chrono>
 
 #include "Application.h"
+#include "util/ScreenRes.h"
 
-const int RESOLUTION_X = 640;
-const int RESOLUTION_Y = 480;
+int ScreenRes::screenWidth = 1280;
+int ScreenRes::screenHeight = 800;
 
 void OnWindowResized(GLFWwindow* window, int width, int height)
 {
@@ -35,9 +40,8 @@ int main(void)
 	if (!glfwInit())
 		return -1;
 
-
 	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(RESOLUTION_X, RESOLUTION_Y, "Hello World", NULL, NULL);
+	window = glfwCreateWindow(ScreenRes::screenWidth, ScreenRes::screenHeight, "Hello World", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -49,9 +53,9 @@ int main(void)
 	/* Make the window's context current */
 	glfwMakeContextCurrent(window);
 
-	OnWindowResized(window, RESOLUTION_X, RESOLUTION_Y);
+	OnWindowResized(window, ScreenRes::screenWidth, ScreenRes::screenHeight);
 
-	Matrix matrix(Matrix::makeIdentityMatrix());
+	//Matrix matrix(Matrix::makeIdentityMatrix());
 
 	Application App;
 	App.Start();
@@ -66,7 +70,7 @@ int main(void)
 	//game loop
 	while (!glfwWindowShouldClose(window))
 	{
-		/* Render here */
+		// Begin render
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		double ThisFrameTime = glfwGetTime();
@@ -74,12 +78,12 @@ int main(void)
 
 		//============================================================
 		int MinSleepTimeTH = 10;
-		// Conservatively asking the system to sleep
+		// Gets the system to sleep
 		int SleepTime = (MinDeltaTime - DeltaTime) * 1000 - MinSleepTimeTH;
 		if (SleepTime >= MinSleepTimeTH)
 			Sleep(SleepTime);
 
-		// Sleep time is no precise, use loop to "waste" extra cpu cycles
+		// loop to "waste" extra cpu cycles
 		while (DeltaTime < MinDeltaTime)
 			DeltaTime = glfwGetTime() - LastFrameTime;
 		//============================================================
@@ -95,9 +99,10 @@ int main(void)
 		App.Update(DeltaTime);
 		App.Draw();
 
-
-
+		// Renders everything into the window
 		glfwSwapBuffers(window);
+
+		// Checks for keyboard/mouse input
 		glfwPollEvents();
 
 

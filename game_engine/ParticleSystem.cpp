@@ -31,10 +31,10 @@ void ParticleSystem::Update(float DeltaTime)
 		RandVelocity = Vector2(rand() % 200 - 100, rand() % 200 - 100);
 		RandLifetime = rand() % 2 + 0.5;
 		ParticleObject* NewParticle = new ParticleObject(ParticleSprite, RandVelocity, Vector2(0, -150), RandLifetime);
-		NewParticle->SetPosition(Position);
-		NewParticle->SetScale(Vector2(3.25f, 3.25f));
-		NewParticle->SetColor(&Color::White);
-		NewParticle->SetBlendMode(ADDITIVE);
+		NewParticle->setPosition(Position);
+		NewParticle->setScale(Vector2(3.25f, 3.25f));
+		NewParticle->setColor(&Color::White);
+		NewParticle->setBlendMode(BlendingMode::Add);
 
 		ParticleList.push_back(NewParticle);
 		EmissionCount = 0;
@@ -50,8 +50,8 @@ void ParticleSystem::Update(float DeltaTime)
 	while (iter != ParticleList.end())
 	{
 		ParticleObject* TempParticle = *iter;
-		ParticleAffectorColor AffectorColor(TempParticle->GetColor(), &Color::Blue);
-		ParticleAffectorScale AffectorScale(TempParticle->GetScale(), Vector2(0.f, 0.f));
+		ParticleAffectorColor AffectorColor(TempParticle->getColor(), &Color::Blue);
+		ParticleAffectorScale AffectorScale(TempParticle->getScale(), Vector2(0.f, 0.f));
 		TempParticle->Update(DeltaTime);
 		AffectorColor.AffectParticleUpdate(DeltaTime, TempParticle);
 		AffectorScale.AffectParticleUpdate(DeltaTime, TempParticle);

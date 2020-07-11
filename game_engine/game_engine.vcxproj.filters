@@ -95,5 +95,8 @@
     <ClInclude Include="ParticleAffectorScale.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ScreenRes.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

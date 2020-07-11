@@ -6,11 +6,11 @@
 #include <string>
 #include <iostream>
 
-enum BlendMode
+enum class BlendingMode
 {
-	NORMAL = 0,
-	ADDITIVE,
-	MULTIPLY
+	Alpha = 0,
+	Add,
+	Multiply
 };
 
 
@@ -26,5 +26,5 @@ public:
 	Sprite(const char* File);
 	~Sprite();
 
-	void Draw(const Color* DesiredColor, BlendMode DesiredBlendMode);
+	void Draw(const Color* newColor, BlendingMode blend);
 };

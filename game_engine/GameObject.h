@@ -1,35 +1,43 @@
-#pragma once
+#ifndef GAMEOBJECT_H
+#define GAMEOBJECT_H
+
 #include "util/matrix.h"
 #include "util/Vector2.h"
 #include "Sprite.h"
 
-
 class GameObject
 {
 protected:
-	Vector2 ObjectPosition;
-	float ObjectRotation;
-	Vector2 ObjectScale;
+	Vector2 m_position;
+	float m_rotation;
+	Vector2 m_scale;
 
-	Sprite* ObjectSprite;
+	Sprite* m_sprite;
 	Matrix TransformMatrix, TranslateMatrix, RotateMatrix, ScaleMatrix;
-	Color* ObjectColor = &Color::White;
-	BlendMode ObjectBlendMode;
+	Color* m_color = &Color::White;
+	BlendingMode m_blend;
 
 public:
 	GameObject();
-	GameObject(Sprite* DesiredSprite);
+	GameObject(Sprite* newSprite);
 	~GameObject();
-	Vector2 GetPosition() { return ObjectPosition; }
-	float GetRotation() { return ObjectRotation; }
-	Vector2 GetScale() { return ObjectScale; }
-	Color* GetColor() { return ObjectColor; }
-	void SetPosition(const Vector2& DesiredPosition);
-	void SetRotation(float DesiredRotation);
-	void SetScale(const Vector2& DesiredScale);
-	void SetColor(Color* DesiredColor);
-	void SetBlendMode(BlendMode DesiredBlendMode);
+
+	Vector2 getPosition() { return m_position; }
+	void setPosition(const Vector2& newPosition);
+
+	float getRotation() { return m_rotation; }
+	void setRotation(float newRotation);
+
+	Vector2 getScale() { return m_scale; }
+	void setScale(const Vector2& newScale);
+
+	Color* getColor() { return m_color; }
+	void setColor(Color* newColor);
+
+	void setBlendMode(BlendingMode newBlend);
 
 	void Update(float DeltaTime);
 	void Draw();
 };
+
+#endif

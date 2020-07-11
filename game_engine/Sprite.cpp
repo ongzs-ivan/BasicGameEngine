@@ -34,7 +34,7 @@ Sprite::~Sprite()
 {
 }
 
-void Sprite::Draw(const Color* DesiredColor, BlendMode DesiredBlendMode)
+void Sprite::Draw(const Color* newColor, BlendingMode blend)
 {
 	float HalfWidth = SpriteWidth / 2.f;
 	float HalfHeight = SpriteHeight / 2.f;
@@ -43,18 +43,18 @@ void Sprite::Draw(const Color* DesiredColor, BlendMode DesiredBlendMode)
 	glBindTexture(GL_TEXTURE_2D, SpriteTextureID);
 
 	// Sets the rgba channels
-	glColor4f(DesiredColor->R, DesiredColor->G, DesiredColor->B, DesiredColor->A);
+	glColor4f(newColor->R, newColor->G, newColor->B, newColor->A);
 
 	// Sets blend mode
-	switch (DesiredBlendMode)
+	switch (blend)
 	{
-	case NORMAL:
+	case BlendingMode::Alpha:
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		break;
-	case ADDITIVE:
+	case BlendingMode::Add:
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 		break;
-	case MULTIPLY:
+	case BlendingMode::Multiply:
 		glBlendFunc(GL_ZERO, GL_SRC_COLOR);
 		break;
 	}

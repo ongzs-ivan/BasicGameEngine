@@ -2,72 +2,69 @@
 
 GameObject::GameObject()
 {
-	ObjectPosition = Vector2(0.f, 0.f);
-	ObjectRotation = 0.f;
-	ObjectScale = Vector2(1.f, 1.f);
+	m_position = Vector2(0.f, 0.f);
+	m_rotation = 0.f;
+	m_scale = Vector2(1.f, 1.f);
+	m_blend = BlendingMode::Alpha;
 
-	ObjectSprite = nullptr;
+	m_sprite = nullptr;
+	TranslateMatrix = Matrix::makeTranslationMatrix(m_position.X, m_position.Y, 0.f);
+	RotateMatrix = Matrix::makeRotateMatrix(m_rotation, Vector(0.f, 0.f, 1.f));
+	ScaleMatrix = Matrix::makeScaleMatrix(m_scale.X, m_scale.Y, 0.f);
 
-	TranslateMatrix = Matrix::makeTranslationMatrix(ObjectPosition.X, ObjectPosition.Y, 0.f);
-	RotateMatrix = Matrix::makeRotateMatrix(ObjectRotation, Vector(0.f, 0.f, 1.f));
-	ScaleMatrix = Matrix::makeScaleMatrix(ObjectScale.X, ObjectScale.Y, 0.f);
-
-	// Set the blend mode
-	ObjectBlendMode = NORMAL;
 }
 
-
-GameObject::GameObject(Sprite* DesiredSprite)
+GameObject::GameObject(Sprite* newSprite)
 {
-	ObjectPosition = Vector2(0.f, 0.f);
-	ObjectRotation = 0.f;
-	ObjectScale = Vector2(1.f, 1.f);
+	m_position = Vector2(0.f, 0.f);
+	m_rotation = 0.f;
+	m_scale = Vector2(1.f, 1.f);
+	m_blend = BlendingMode::Alpha;
 
-	ObjectSprite = DesiredSprite;
-	TranslateMatrix = Matrix::makeTranslationMatrix(ObjectPosition.X, ObjectPosition.Y, 0.f);
-	RotateMatrix = Matrix::makeRotateMatrix(ObjectRotation, Vector(0.f, 0.f, 1.f));
-	ScaleMatrix = Matrix::makeScaleMatrix(ObjectScale.X, ObjectScale.Y, 0.f);
+	m_sprite = newSprite;
+	TranslateMatrix = Matrix::makeTranslationMatrix(m_position.X, m_position.Y, 0.f);
+	RotateMatrix = Matrix::makeRotateMatrix(m_rotation, Vector(0.f, 0.f, 1.f));
+	ScaleMatrix = Matrix::makeScaleMatrix(m_scale.X, m_scale.Y, 0.f);
 
-	// Set the blend mode
-	ObjectBlendMode = NORMAL;
 }
-
 
 GameObject::~GameObject()
 {
+
 }
 
-void GameObject::SetPosition(const Vector2& DesiredPosition)
+void GameObject::setPosition(const Vector2& newPosition)
 {
-	ObjectPosition = DesiredPosition;
-	TranslateMatrix = Matrix::makeTranslationMatrix(ObjectPosition.X, ObjectPosition.Y, 0.f);
+	m_position = newPosition;
+	TranslateMatrix = Matrix::makeTranslationMatrix(m_position.X, m_position.Y, 0.f);
 }
 
-void GameObject::SetRotation(float DesiredRotation)
+void GameObject::setRotation(float newRotation)
 {
-	ObjectRotation = DesiredRotation;
-	RotateMatrix = Matrix::makeRotateMatrix(ObjectRotation, Vector(0.f, 0.f, 1.f));
+	m_rotation = newRotation;
+	RotateMatrix = Matrix::makeRotateMatrix(m_rotation, Vector(0.f, 0.f, 1.f));
 }
 
-void GameObject::SetScale(const Vector2& DesiredScale)
+void GameObject::setScale(const Vector2& newScale)
 {
-	ObjectScale = DesiredScale;
-	ScaleMatrix = Matrix::makeScaleMatrix(ObjectScale.X, ObjectScale.Y, 0.f);
+	m_scale = newScale;
+	ScaleMatrix = Matrix::makeScaleMatrix(m_scale.X, m_scale.Y, 0.f);
 }
 
-void GameObject::SetColor(Color* DesiredColor)
+void GameObject::setColor(Color* newColor)
 {
-	ObjectColor = DesiredColor;
+	m_color = newColor;
 }
 
-void GameObject::SetBlendMode(BlendMode DesiredBlendMode)
+void GameObject::setBlendMode(BlendingMode newBlend)
 {
-	ObjectBlendMode = DesiredBlendMode;
+	m_blend = newBlend;
 }
 
 
 void GameObject::Update(float DeltaTime)
 {
+
 }
 
 void GameObject::Draw()
@@ -75,5 +72,5 @@ void GameObject::Draw()
 	TransformMatrix = TranslateMatrix * RotateMatrix * ScaleMatrix;
 	glLoadMatrixf((GLfloat*)TransformMatrix.mVal);
 
-	ObjectSprite->Draw(ObjectColor, ObjectBlendMode);
+	m_sprite->Draw(m_color, m_blend);
 }

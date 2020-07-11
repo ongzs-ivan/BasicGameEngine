@@ -1,8 +1,9 @@
-#pragma once
+#ifndef PARTICLEOBJECT_H
+#define PARTICLEOBJECT_H
+
 #include "GameObject.h"
 
-class ParticleObject :
-	public GameObject
+class ParticleObject : public GameObject
 {
 public:
 	Vector2 Velocity, Acceleration;
@@ -12,3 +13,5 @@ public:
 	~ParticleObject();
 	void Update(float DeltaTime);
 };
+
+#endif

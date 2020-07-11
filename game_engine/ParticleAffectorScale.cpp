@@ -16,12 +16,12 @@ ParticleAffectorScale::ParticleAffectorScale(const Vector2& Start, const Vector2
 
 void ParticleAffectorScale::AffectParticleUpdate(float DeltaTime, ParticleObject* Particle)
 {
-	Vector2 CurrentScale = Particle->GetScale();
+	Vector2 CurrentScale = Particle->getScale();
 
 	float ParticleDeltaTime = DeltaTime / Particle->MaxLifetime;
 
 	LerpScale(ParticleDeltaTime, StartScale.X, EndScale.X, CurrentScale.X);
 	LerpScale(ParticleDeltaTime, StartScale.Y, EndScale.Y, CurrentScale.Y);
 
-	Particle->SetScale(CurrentScale);
+	Particle->setScale(CurrentScale);
 }

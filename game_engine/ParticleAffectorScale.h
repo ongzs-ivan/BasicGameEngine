@@ -1,4 +1,6 @@
-#pragma once
+#ifndef PARTICLEAFFECTORSCALE_H
+#define PARTICLEAFFECTORSCALE_H
+
 #include "ParticleAffector.h"
 
 class ParticleAffectorScale :
@@ -14,3 +16,4 @@ public:
     void AffectParticleUpdate(float DeltaTime, ParticleObject* Particle) override;
 };
 
+#endif
