@@ -1,0 +1,6 @@
+#include "Color.h"
+
+Color Color::White = Color(1, 1, 1, 1);
+Color Color::Red = Color(1, 0, 0, 1);
+Color Color::Green = Color(0, 1, 0, 1);
+Color Color::Blue = Color(0, 0, 1, 1);
