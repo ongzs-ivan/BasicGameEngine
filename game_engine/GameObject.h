@@ -14,7 +14,7 @@ protected:
 
 	Sprite* m_sprite;
 	Matrix TransformMatrix, TranslateMatrix, RotateMatrix, ScaleMatrix;
-	Color* m_color = &Color::White;
+	Color m_color = Color::White;
 	BlendingMode m_blend;
 
 public:
@@ -31,8 +31,8 @@ public:
 	Vector2 getScale() { return m_scale; }
 	void setScale(const Vector2& newScale);
 
-	Color* getColor() { return m_color; }
-	void setColor(Color* newColor);
+	Color getColor() { return m_color; }
+	void setColor(const Color& newColor);
 
 	void setBlendMode(BlendingMode newBlend);
 

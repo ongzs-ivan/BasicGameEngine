@@ -56,7 +56,7 @@ int main(void)
 	OnWindowResized(window, ScreenRes::screenWidth, ScreenRes::screenHeight);
 
 	//Matrix matrix(Matrix::makeIdentityMatrix());
-
+	
 	Application App;
 	App.Start();
 

@@ -1,33 +1,21 @@
 #include "ParticleAffectorColor.h"
 
-#define OUT
-
-void ParticleAffectorColor::LerpColor(float DeltaTime, float StartColorChannel, float EndColorChannel, float& CurrentColorChannel)
+ParticleAffectorColor::ParticleAffectorColor(const Color& Start, const Color& End)
 {
-	if (StartColorChannel < EndColorChannel && CurrentColorChannel < EndColorChannel)
-		CurrentColorChannel += DeltaTime;
-	else if (StartColorChannel > EndColorChannel && CurrentColorChannel > EndColorChannel)
-		CurrentColorChannel -= DeltaTime;
+	colorStart = Start;
+	colorEnd = End;
+	colorUpdate = Color::White;
 }
 
-ParticleAffectorColor::ParticleAffectorColor(Color* Start, Color* End)
+
+void ParticleAffectorColor::affectParticleUpdate(ParticleObject* particle)
 {
-	StartColor = Start;
-	EndColor = End;
-}
+	percentage = particle->m_life / particle->m_lifeMax;
 
-void ParticleAffectorColor::AffectParticleUpdate(float DeltaTime, ParticleObject* Particle)
-{
-	Color CurrentColor = *Particle->getColor();
+	colorUpdate.R = Lerp(colorStart.R, colorEnd.R, percentage);
+	colorUpdate.G = Lerp(colorStart.G, colorEnd.G, percentage);
+	colorUpdate.B = Lerp(colorStart.B, colorEnd.B, percentage);
+	colorUpdate.A = Lerp(colorStart.A, colorEnd.A, percentage);
 
-	float ParticleDeltaTime = DeltaTime / Particle->MaxLifetime;
-
-	LerpColor(ParticleDeltaTime, StartColor->R, EndColor->R, OUT CurrentColor.R);
-	LerpColor(ParticleDeltaTime, StartColor->G, EndColor->G, OUT CurrentColor.G);
-	LerpColor(ParticleDeltaTime, StartColor->B, EndColor->B, OUT CurrentColor.B);
-	LerpColor(ParticleDeltaTime, StartColor->A, EndColor->A, OUT CurrentColor.A);
-
-	Color* NewColor = new Color(CurrentColor.R, CurrentColor.G, CurrentColor.B, CurrentColor.A);
-
-	Particle->setColor(NewColor);
+	particle->setColor(colorUpdate);
 }

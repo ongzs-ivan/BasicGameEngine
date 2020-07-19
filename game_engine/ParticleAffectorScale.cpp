@@ -1,27 +1,17 @@
 #include "ParticleAffectorScale.h"
 
-void ParticleAffectorScale::LerpScale(float DeltaTime, float StartScaleValue, float EndScaleValue, float& CurrentScaleValue)
-{
-	if (StartScaleValue < EndScaleValue && CurrentScaleValue < EndScaleValue)
-		CurrentScaleValue += DeltaTime;
-	else if (StartScaleValue > EndScaleValue && CurrentScaleValue > EndScaleValue)
-		CurrentScaleValue -= DeltaTime;
-}
-
 ParticleAffectorScale::ParticleAffectorScale(const Vector2& Start, const Vector2& End)
 {
-	StartScale = Start;
-	EndScale = End;
+	scaleStart = Start;
+	scaleEnd = End;
+	scaleUpdate = Vector2(0.0f, 0.0f);
 }
-
-void ParticleAffectorScale::AffectParticleUpdate(float DeltaTime, ParticleObject* Particle)
+void ParticleAffectorScale::affectParticleUpdate(ParticleObject* particle)
 {
-	Vector2 CurrentScale = Particle->getScale();
+	percentage = particle->m_life / particle->m_lifeMax;
 
-	float ParticleDeltaTime = DeltaTime / Particle->MaxLifetime;
+	scaleUpdate.X = Lerp(scaleStart.X, scaleEnd.X, percentage);
+	scaleUpdate.Y = Lerp(scaleStart.Y, scaleEnd.Y, percentage);
 
-	LerpScale(ParticleDeltaTime, StartScale.X, EndScale.X, CurrentScale.X);
-	LerpScale(ParticleDeltaTime, StartScale.Y, EndScale.Y, CurrentScale.Y);
-
-	Particle->setScale(CurrentScale);
+	particle->setScale(scaleUpdate);
 }

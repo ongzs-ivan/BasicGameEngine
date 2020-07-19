@@ -34,7 +34,7 @@ Sprite::~Sprite()
 {
 }
 
-void Sprite::Draw(const Color* newColor, BlendingMode blend)
+void Sprite::Draw(const Color& newColor, BlendingMode blend)
 {
 	float HalfWidth = SpriteWidth / 2.f;
 	float HalfHeight = SpriteHeight / 2.f;
@@ -43,7 +43,7 @@ void Sprite::Draw(const Color* newColor, BlendingMode blend)
 	glBindTexture(GL_TEXTURE_2D, SpriteTextureID);
 
 	// Sets the rgba channels
-	glColor4f(newColor->R, newColor->G, newColor->B, newColor->A);
+	glColor4f(newColor.R, newColor.G, newColor.B, newColor.A);
 
 	// Sets blend mode
 	switch (blend)
@@ -60,12 +60,12 @@ void Sprite::Draw(const Color* newColor, BlendingMode blend)
 	}
 
 	glBegin(GL_TRIANGLES);
-	glTexCoord2f(0, 1); glVertex2f(0 - HalfWidth, 0 + HalfHeight);
-	glTexCoord2f(0, 0); glVertex2f(0 - HalfWidth, 0 - HalfHeight);
-	glTexCoord2f(1, 0); glVertex2f(0 + HalfWidth, 0 - HalfHeight);
+		glTexCoord2f(0, 1); glVertex2f(0 - HalfWidth, 0 + HalfHeight);
+		glTexCoord2f(0, 0); glVertex2f(0 - HalfWidth, 0 - HalfHeight);
+		glTexCoord2f(1, 0); glVertex2f(0 + HalfWidth, 0 - HalfHeight);
 
-	glTexCoord2f(0, 1); glVertex2f(0 - HalfWidth, 0 + HalfHeight);
-	glTexCoord2f(1, 1); glVertex2f(0 + HalfWidth, 0 + HalfHeight);
-	glTexCoord2f(1, 0); glVertex2f(0 + HalfWidth, 0 - HalfHeight);
+		glTexCoord2f(0, 1); glVertex2f(0 - HalfWidth, 0 + HalfHeight);
+		glTexCoord2f(1, 1); glVertex2f(0 + HalfWidth, 0 + HalfHeight);
+		glTexCoord2f(1, 0); glVertex2f(0 + HalfWidth, 0 - HalfHeight);
 	glEnd();
 }

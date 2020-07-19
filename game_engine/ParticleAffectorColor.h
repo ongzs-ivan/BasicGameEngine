@@ -6,15 +6,14 @@
 class ParticleAffectorColor : public ParticleAffector
 {
 protected:
-    Color* StartColor;
-    Color* EndColor;
-    void LerpColor(float DeltaTime, float StartColorChannel, float EndColorChannel, float& CurrentColorChannel);
+    Color colorStart;
+    Color colorEnd;
+    Color colorUpdate;
 
 public:
-    ParticleAffectorColor(Color* Start, Color* End);
-    void AffectParticleUpdate(float DeltaTime, ParticleObject* Particle) override;
-
+    ParticleAffectorColor(const Color& Start, const Color& End);
+    void affectParticleUpdate(ParticleObject* particle) override;
+    
 };
 
 #endif
-

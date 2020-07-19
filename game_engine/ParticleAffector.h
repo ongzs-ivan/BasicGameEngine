@@ -5,8 +5,13 @@
 
 class ParticleAffector
 {
+protected:
+	float percentage;
+
+	// lerp function, a = start, b = end, t = interpolation value
+	float Lerp(float a, float b, float t) { return a + t * (b - a); };
 public:
-	virtual void AffectParticleUpdate(float DeltaTime, ParticleObject* Particle) = 0;
+	virtual void affectParticleUpdate(ParticleObject* particle) = 0;
 };
 
 #endif

@@ -146,6 +146,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ParticleAffectorColor.cpp" />
+    <ClCompile Include="ParticleAffectorRotate.cpp" />
     <ClCompile Include="ParticleAffectorScale.cpp" />
     <ClCompile Include="ParticleObject.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="ParticleAffector.h" />
     <ClInclude Include="ParticleAffectorColor.h" />
+    <ClInclude Include="ParticleAffectorRotate.h" />
     <ClInclude Include="ParticleAffectorScale.h" />
     <ClInclude Include="ParticleObject.h" />
     <ClInclude Include="ParticleSystem.h" />

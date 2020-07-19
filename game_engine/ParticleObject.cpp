@@ -2,31 +2,34 @@
 
 ParticleObject::ParticleObject()
 {
-	Velocity = Acceleration = Vector2(0.f, 0.f);
-	CurrentLifetime = MaxLifetime = 0;
+	m_velocity = m_accel = Vector2(0.0f, 0.0f);
+	m_life = m_lifeMax = 0;
 }
 
-ParticleObject::ParticleObject(Sprite* DesiredSprite, const Vector2& ParticleVelocity, const Vector2& ParticleAcceleration, float ParticleLifetime)
-	: GameObject(DesiredSprite)
+ParticleObject::ParticleObject(Sprite* newSprite, const Vector2& newVelocity, float newLife) : GameObject(newSprite)
 {
-	Velocity = ParticleVelocity;
-	Acceleration = ParticleAcceleration;
-	CurrentLifetime = MaxLifetime = ParticleLifetime;
+	m_velocity = newVelocity;
+	m_lifeMax = newLife;
 }
 
 ParticleObject::~ParticleObject()
 {
 }
 
-void ParticleObject::Update(float DeltaTime)
+void ParticleObject::setAccel(Vector2 newAccel)
+{
+	m_accel = newAccel;
+}
+
+void ParticleObject::Update(float deltaTime)
 {
 	// Apply acceleration (if any)
-	Velocity = Velocity + (Acceleration * DeltaTime);
+	m_velocity = m_velocity + (m_accel * deltaTime);
 
 	// Update the position
-	Vector2 NewPosition = getPosition() + (Velocity * DeltaTime);
+	Vector2 NewPosition = getPosition() + (m_velocity * deltaTime);
 	setPosition(NewPosition);
 
 	// Decrease the lifetime of particle every update
-	CurrentLifetime -= DeltaTime;
+	m_life += deltaTime;
 }

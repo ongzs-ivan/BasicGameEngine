@@ -26,5 +26,5 @@ public:
 	Sprite(const char* File);
 	~Sprite();
 
-	void Draw(const Color* newColor, BlendingMode blend);
+	void Draw(const Color& newColor, BlendingMode blend);
 };

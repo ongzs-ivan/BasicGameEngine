@@ -6,12 +6,18 @@
 class ParticleObject : public GameObject
 {
 public:
-	Vector2 Velocity, Acceleration;
-	float MaxLifetime, CurrentLifetime;
+	Vector2 m_velocity;
+	Vector2 m_accel;
+	float m_lifeMax;
+	float m_life;
 	ParticleObject();
-	ParticleObject(Sprite* DesiredSprite, const Vector2& ParticleVelocity, const Vector2& ParticleAcceleration, float ParticleLifetime);
+	ParticleObject(Sprite* newSprite, const Vector2& newVelocity, float newLife);
 	~ParticleObject();
-	void Update(float DeltaTime);
+
+	Vector2 getAccel() { return m_accel; };
+	void setAccel(Vector2 newAccel);
+	
+	void Update(float deltaTime);
 };
 
 #endif
