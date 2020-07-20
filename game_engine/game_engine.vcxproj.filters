@@ -19,6 +19,18 @@
     <Filter Include="Source Files\util">
       <UniqueIdentifier>{48c61545-e654-41bb-924d-e37f9c9f0557}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Particle FX">
+      <UniqueIdentifier>{4c908ee8-927e-4c5b-b1b1-0fc23fa61ea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Particle FX">
+      <UniqueIdentifier>{ad80b771-9839-46bb-9217-9ed3bd427e12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\EmitterShape">
+      <UniqueIdentifier>{00e5202f-09c8-4bcf-8714-92ad1cbef699}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\EmitterShape">
+      <UniqueIdentifier>{374f3df0-b07a-4082-bd55-ae01d8b22256}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -49,13 +61,25 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ParticleAffectorColor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ParticleAffectorScale.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Particle FX</Filter>
     </ClCompile>
     <ClCompile Include="ParticleAffectorRotate.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Particle FX</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleAffectorGravity.cpp">
+      <Filter>Source Files\Particle FX</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleAffectorScale.cpp">
+      <Filter>Source Files\Particle FX</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleEmitterShape.cpp">
+      <Filter>Source Files\EmitterShape</Filter>
+    </ClCompile>
+    <ClCompile Include="SquareEmitterShape.cpp">
+      <Filter>Source Files\EmitterShape</Filter>
+    </ClCompile>
+    <ClCompile Include="RingEmitterShape.cpp">
+      <Filter>Source Files\EmitterShape</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,20 +113,35 @@
     <ClInclude Include="ParticleSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ParticleAffector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ParticleAffectorColor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ParticleAffectorScale.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ScreenRes.h">
       <Filter>Header Files\util</Filter>
     </ClInclude>
+    <ClInclude Include="ParticleAffector.h">
+      <Filter>Header Files\Particle FX</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleAffectorColor.h">
+      <Filter>Header Files\Particle FX</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleAffectorGravity.h">
+      <Filter>Header Files\Particle FX</Filter>
+    </ClInclude>
     <ClInclude Include="ParticleAffectorRotate.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Particle FX</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleAffectorScale.h">
+      <Filter>Header Files\Particle FX</Filter>
+    </ClInclude>
+    <ClInclude Include="EmitterShape.h">
+      <Filter>Header Files\EmitterShape</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleEmitterShape.h">
+      <Filter>Header Files\EmitterShape</Filter>
+    </ClInclude>
+    <ClInclude Include="SquareEmitterShape.h">
+      <Filter>Header Files\EmitterShape</Filter>
+    </ClInclude>
+    <ClInclude Include="RingEmitterShape.h">
+      <Filter>Header Files\EmitterShape</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -143,29 +143,38 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="CircleEmitterShape.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ParticleAffectorColor.cpp" />
+    <ClCompile Include="ParticleAffectorGravity.cpp" />
     <ClCompile Include="ParticleAffectorRotate.cpp" />
     <ClCompile Include="ParticleAffectorScale.cpp" />
     <ClCompile Include="ParticleObject.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
+    <ClCompile Include="RingEmitterShape.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="SquareEmitterShape.cpp" />
     <ClCompile Include="util\Color.cpp" />
     <ClCompile Include="util\matrix.cpp" />
     <ClCompile Include="util\Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
+    <ClInclude Include="CircleEmitterShape.h" />
+    <ClInclude Include="EmitterShape.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="ParticleAffector.h" />
     <ClInclude Include="ParticleAffectorColor.h" />
+    <ClInclude Include="ParticleAffectorGravity.h" />
     <ClInclude Include="ParticleAffectorRotate.h" />
     <ClInclude Include="ParticleAffectorScale.h" />
     <ClInclude Include="ParticleObject.h" />
     <ClInclude Include="ParticleSystem.h" />
+    <ClInclude Include="RingEmitterShape.h" />
     <ClInclude Include="ScreenRes.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="SquareEmitterShape.h" />
     <ClInclude Include="util\bitmap.h" />
     <ClInclude Include="util\Color.h" />
     <ClInclude Include="util\matrix.h" />

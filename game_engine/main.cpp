@@ -9,7 +9,7 @@
 
 #include <iostream>
 #include <ctime>
-//#include <chrono>
+#include <chrono>
 
 #include "Application.h"
 #include "util/ScreenRes.h"
@@ -25,7 +25,6 @@ void OnWindowResized(GLFWwindow* window, int width, int height)
 
 	// Use ortho 2D view
 	gluOrtho2D(0, width, 0, height);
-
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 }
@@ -33,7 +32,9 @@ void OnWindowResized(GLFWwindow* window, int width, int height)
 
 
 int main(void)
-{
+{ 
+	srand(time(NULL));
+
 	GLFWwindow* window;
 
 	/* Initialize the library */

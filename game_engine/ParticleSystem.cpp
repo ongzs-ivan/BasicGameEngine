@@ -5,11 +5,6 @@ ParticleSystem::ParticleSystem()
 	m_position = Vector2(0, 0);
 	emissionRate = 0;
 	emissionCount = 0;
-	m_sprite = nullptr;
-
-	m_colorAffector = nullptr;
-	m_scaleAffector = nullptr;
-	m_rotateAffector = nullptr;
 }
 
 ParticleSystem::ParticleSystem(const Vector2& newPos, float newRate, Sprite* newSprite)
@@ -19,9 +14,7 @@ ParticleSystem::ParticleSystem(const Vector2& newPos, float newRate, Sprite* new
 	emissionCount = 0;
 	m_sprite = newSprite;
 
-	m_colorAffector = nullptr;
-	m_scaleAffector = nullptr;
-	m_rotateAffector = nullptr;
+	m_shape = new RingEmitterShape(100.0f, 200.0f);
 }
 
 ParticleSystem::~ParticleSystem()
@@ -34,24 +27,31 @@ void ParticleSystem::Update(float deltaTime)
 	Vector2 newVel;
 	float newLife;
 
-	// update particle count
+	// update particle count / add new particle + effects
 	if (emissionCount >= emissionRate)
 	{
-		newVel = Vector2(rand() % 200 - 100, rand() % 200 - 100);
-		newLife = rand() % 2 + 2;
-		ParticleObject* NewParticle = new ParticleObject(m_sprite, newVel, newLife);
-		NewParticle->setPosition(m_position);
-		NewParticle->setScale(Vector2(0.25f, 0.25f));
-		NewParticle->setColor(Color::White);
-		NewParticle->setBlendMode(BlendingMode::Add);
-		NewParticle->setAccel(Vector2(0.0f, -9.81f)); // temp gravity
+		//newVel = Vector2(rand() % 200 - 100, rand() % 200 - 100);
+		newVel = Vector2(0.0f, 0.0f);
+		//newLife = rand() % 2 + 1;
+		newLife = 100.0f;
+		newParticle = new ParticleObject(m_sprite, newVel, newLife);
+		newParticle->setPosition(m_shape->getParticleEmissionPos(&m_position));
+		newParticle->setScale(Vector2(1.0f, 1.0f));
+		newParticle->setColor(Color::White);
+		newParticle->setBlendMode(BlendingMode::Add);
+		//newParticle->setAccel(Vector2(0.0f, -9.81f));
 
-		m_colorAffector = new ParticleAffectorColor(NewParticle->getColor(), Color::Black);
-		m_scaleAffector = new ParticleAffectorScale(NewParticle->getScale(), Vector2(0.01f, 0.01f));
-		m_rotateAffector = new ParticleAffectorRotate(NewParticle->getRotation(), 270.0f);
-		// gravity affector
+		m_colorAffector = new ParticleAffectorColor(newParticle->getColor(), Color::Black);
+		m_scaleAffector = new ParticleAffectorScale(newParticle->getScale(), Vector2(0.25f, 0.25f));
+		m_rotateAffector = new ParticleAffectorRotate(newParticle->getRotation(), 450.0f);
+		//m_gravityAffector = new ParticleAffectorGravity(newParticle->getAccel(), Vector2(0.0f, -100.0f));
 
-		m_particleList.push_back(NewParticle);
+		addAffector(m_colorAffector);
+		addAffector(m_scaleAffector);
+		addAffector(m_rotateAffector);
+		addAffector(m_gravityAffector);
+
+		m_particleList.push_back(newParticle);
 		emissionCount = 0;
 	}
 	else
@@ -59,28 +59,33 @@ void ParticleSystem::Update(float deltaTime)
 		emissionCount += deltaTime;
 	}
 
-	// update each particle
 	std::list<ParticleObject*>::iterator iter = m_particleList.begin();
+
+	// update each particle
 	while (iter != m_particleList.end())
 	{
-		ParticleObject* TempParticle = *iter;
-		TempParticle->Update(deltaTime);
-		m_colorAffector->affectParticleUpdate(TempParticle);
-		m_scaleAffector->affectParticleUpdate(TempParticle);
-		m_rotateAffector->affectParticleUpdate(TempParticle);
-		//gravity affector
+		ParticleObject* currentParticle = *iter;
 
-
-		if (TempParticle->m_life >= TempParticle->m_lifeMax)
+		if (currentParticle->m_life >= currentParticle->m_lifeMax)
 		{
-			delete TempParticle;
+			delete currentParticle;
 			iter = m_particleList.erase(iter);
 		}
 		else
 		{
+			std::list<ParticleAffector*>::iterator iter2 = m_affectorList.begin();
+
+			while (iter2 != m_affectorList.end())
+			{
+				ParticleAffector* currentAffector = *iter2;
+				//currentAffector->affectParticleUpdate(currentParticle);
+
+				iter2++;	
+			}
+
+			currentParticle->Update(deltaTime);
 			iter++;
 		}
-
 	}
 }
 
@@ -89,8 +94,13 @@ void ParticleSystem::Draw()
 	std::list<ParticleObject*>::iterator iter = m_particleList.begin();
 	while (iter != m_particleList.end())
 	{
-		ParticleObject* TempParticle = *iter;
-		TempParticle->Draw();
+		ParticleObject* currentParticle = *iter;
+		currentParticle->Draw();
 		iter++;
 	}
+}
+
+void ParticleSystem::addAffector(ParticleAffector* newAffector)
+{
+	m_affectorList.push_back(newAffector);
 }

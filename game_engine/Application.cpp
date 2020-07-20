@@ -17,18 +17,15 @@ void Application::Start()
 {
 	std::cout << "Application started\n";
 	sprite1 = new Sprite("../media/yaranaika.bmp");
-	sprite2 = new Sprite("../media/explosion.bmp");
+	sprite2 = new Sprite("../media/star.bmp");
 
-	particleSystem1 = new ParticleSystem(Vector2(320, 320), 0.2f, sprite1);
+	particleSystem1 = new ParticleSystem(Vector2(320, 320), 0.1f, sprite1);
+
 }
 
 void Application::Update(float DeltaTime)
 {
 	RotationOverTime += DeltaTime;
-	//TestObject1->SetRotation(25 * RotationOverTime);
-	//TestObject2->SetScale(Vector2(sin(RotationOverTime) * 1.5f, sin(RotationOverTime) + 1.5f));
-
-
 	particleSystem1->Update(DeltaTime);
 }
 
