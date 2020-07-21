@@ -14,7 +14,16 @@ ParticleSystem::ParticleSystem(const Vector2& newPos, float newRate, Sprite* new
 	emissionCount = 0;
 	m_sprite = newSprite;
 
-	m_shape = new RingEmitterShape(100.0f, 200.0f);
+	particleColorI = Color::White;
+	particleColorF = Color::Black;
+	particleScaleI = Vector2(1.0f, 1.0f);
+	particleScaleF = Vector2(0.25f, 0.25f);
+	particleRotationI = 0.0f;
+	particleRotationF = 450.0f;
+	particleAccI = Vector2(0.0f, -9.81f);
+	particleAccF = Vector2(0.0f, -100.0f);
+
+	m_shape = new SquareEmitterShape(75.0f, 50.0f);
 }
 
 ParticleSystem::~ParticleSystem()
@@ -22,34 +31,59 @@ ParticleSystem::~ParticleSystem()
 
 }
 
+void ParticleSystem::createNewParticle()
+{
+	newVel = Vector2(rand() % 200 - 100, rand() % 125 - 100);
+	newLife = rand() % 3 + 1;
+
+	newParticle = new ParticleObject(m_sprite, newVel, newLife);
+	newParticle->setBlendMode(BlendingMode::Add);
+
+	newParticle->setPosition(m_shape->getParticleEmissionPos(&m_position));
+	newParticle->setRotation(particleRotationI);
+	newParticle->setScale(particleScaleI);
+	newParticle->setColor(particleColorI);
+	newParticle->setAccel(particleAccI);
+
+	m_scaleAffector		= new ParticleAffectorScale(newParticle->getScale(), particleScaleF);
+	m_colorAffector		= new ParticleAffectorColor(newParticle->getColor(), particleColorF);
+	m_rotateAffector	= new ParticleAffectorRotate(newParticle->getRotation(), particleRotationF);
+	m_gravityAffector	= new ParticleAffectorGravity(newParticle->getAccel(), particleAccF);
+
+	addAffector(m_colorAffector);
+	addAffector(m_scaleAffector);
+	addAffector(m_rotateAffector);
+	addAffector(m_gravityAffector);
+}
+
+void ParticleSystem::setEmitterType(EmitterShape* newEmitter)
+{
+	m_shape = newEmitter;
+}
+
+void ParticleSystem::setParticleInfo(Color initialColor, Vector2 initialScale, Vector2 initialAcc, float initialRotation)
+{
+	particleColorI = initialColor;
+	particleScaleI = initialScale;
+	particleAccI = initialAcc;
+	particleRotationI = initialRotation;
+}
+
+void ParticleSystem::setAffectorInfo(Color finalColor, Vector2 finalScale, Vector2 finalAcc, float finalRotation)
+{
+	particleColorF = finalColor;
+	particleScaleF = finalScale;
+	particleAccF = finalAcc;
+	particleRotationF = finalRotation;
+}
+
 void ParticleSystem::Update(float deltaTime)
 {
-	Vector2 newVel;
-	float newLife;
 
 	// update particle count / add new particle + effects
 	if (emissionCount >= emissionRate)
 	{
-		//newVel = Vector2(rand() % 200 - 100, rand() % 200 - 100);
-		newVel = Vector2(0.0f, 0.0f);
-		//newLife = rand() % 2 + 1;
-		newLife = 100.0f;
-		newParticle = new ParticleObject(m_sprite, newVel, newLife);
-		newParticle->setPosition(m_shape->getParticleEmissionPos(&m_position));
-		newParticle->setScale(Vector2(1.0f, 1.0f));
-		newParticle->setColor(Color::White);
-		newParticle->setBlendMode(BlendingMode::Add);
-		//newParticle->setAccel(Vector2(0.0f, -9.81f));
-
-		m_colorAffector = new ParticleAffectorColor(newParticle->getColor(), Color::Black);
-		m_scaleAffector = new ParticleAffectorScale(newParticle->getScale(), Vector2(0.25f, 0.25f));
-		m_rotateAffector = new ParticleAffectorRotate(newParticle->getRotation(), 450.0f);
-		//m_gravityAffector = new ParticleAffectorGravity(newParticle->getAccel(), Vector2(0.0f, -100.0f));
-
-		addAffector(m_colorAffector);
-		addAffector(m_scaleAffector);
-		addAffector(m_rotateAffector);
-		addAffector(m_gravityAffector);
+		createNewParticle();
 
 		m_particleList.push_back(newParticle);
 		emissionCount = 0;
@@ -69,6 +103,7 @@ void ParticleSystem::Update(float deltaTime)
 		if (currentParticle->m_life >= currentParticle->m_lifeMax)
 		{
 			delete currentParticle;
+			currentParticle = nullptr;
 			iter = m_particleList.erase(iter);
 		}
 		else
@@ -78,7 +113,7 @@ void ParticleSystem::Update(float deltaTime)
 			while (iter2 != m_affectorList.end())
 			{
 				ParticleAffector* currentAffector = *iter2;
-				//currentAffector->affectParticleUpdate(currentParticle);
+				currentAffector->affectParticleUpdate(currentParticle);
 
 				iter2++;	
 			}
@@ -88,6 +123,8 @@ void ParticleSystem::Update(float deltaTime)
 		}
 	}
 }
+
+
 
 void ParticleSystem::Draw()
 {

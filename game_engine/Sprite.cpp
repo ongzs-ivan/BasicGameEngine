@@ -27,7 +27,7 @@ Sprite::Sprite(const char* File)
 
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_BLEND);
-	std::cout << bitmap.GetWidth() << " " << bitmap.GetHeight() << std::endl;
+	//std::cout << bitmap.GetWidth() << " " << bitmap.GetHeight() << std::endl;
 }
 
 Sprite::~Sprite()

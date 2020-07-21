@@ -8,6 +8,7 @@ class RingEmitterShape : public EmitterShape
 {
 private:
 	double innerRadius, outerRadius;
+	Vector temp;
 public:
 	RingEmitterShape(float initialInner, float initialOuter);
 	void setRingSize(float newInner, float newOuter);

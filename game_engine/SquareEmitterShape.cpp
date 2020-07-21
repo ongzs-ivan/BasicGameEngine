@@ -15,7 +15,7 @@ void SquareEmitterShape::setSquareSize(float newWidth, float newHeight)
 Vector2 SquareEmitterShape::getParticleEmissionPos(Vector2* particleSystemPos)
 {
 	xPos = particleSystemPos->X + RandomNumber(-halfWidth, halfWidth);
-	yPos = particleSystemPos->X + RandomNumber(-halfHeight, halfHeight);
+	yPos = particleSystemPos->Y + RandomNumber(-halfHeight, halfHeight);
 
 	return Vector2(float(xPos), float(yPos));
 }

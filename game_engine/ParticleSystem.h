@@ -20,22 +20,41 @@ private:
 	ParticleObject* newParticle		= nullptr;
 	ParticleAffector* newAffector	= nullptr;
 
-	Vector2 m_position;
+	Sprite* m_sprite = nullptr;
+
+
+	Color particleColorI;
+	Color particleColorF;
+	Vector2 particleScaleI;
+	Vector2 particleScaleF;
+	float particleRotationI;
+	float particleRotationF;
+	Vector2 particleAccI;
+	Vector2 particleAccF;
+
 	float emissionRate;
 	float emissionCount;
-	Sprite* m_sprite				= nullptr;
+	Vector2 newVel;
+	float newLife;
 
+	EmitterShape* m_shape = nullptr;
 	ParticleAffectorColor* m_colorAffector		= nullptr;
 	ParticleAffectorScale* m_scaleAffector		= nullptr;
 	ParticleAffectorRotate* m_rotateAffector	= nullptr;
 	ParticleAffectorGravity* m_gravityAffector	= nullptr;
 
-	EmitterShape* m_shape			= nullptr;
+	void createNewParticle();
 
 public:
+	Vector2 m_position;
+
 	ParticleSystem();
 	ParticleSystem(const Vector2& newPos, float newRate, Sprite* newSprite);
 	~ParticleSystem();
+
+	void setEmitterType(EmitterShape* newEmitter);
+	void setParticleInfo(Color initialColor, Vector2 initialScale, Vector2 initialAcc, float initialRotation);
+	void setAffectorInfo(Color finalColor, Vector2 finalScale, Vector2 finalAcc, float finalRotation);
 
 	void Update(float deltaTime);
 	void Draw();
