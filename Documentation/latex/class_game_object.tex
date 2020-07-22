@@ -1,0 +1,160 @@
+\hypertarget{class_game_object}{}\doxysection{Game\+Object Class Reference}
+\label{class_game_object}\index{GameObject@{GameObject}}
+Inheritance diagram for Game\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game_object}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_object_a05fe885791601554cf820a3282b16874}\label{class_game_object_a05fe885791601554cf820a3282b16874}} 
+{\bfseries Game\+Object} (\mbox{\hyperlink{class_sprite}{Sprite}} $\ast$new\+Sprite)
+\item 
+\mbox{\Hypertarget{class_game_object_a8f579dedcf9539924c65131b31687757}\label{class_game_object_a8f579dedcf9539924c65131b31687757}} 
+Vector2 {\bfseries get\+Position} ()
+\item 
+void \mbox{\hyperlink{class_game_object_a35ca0ce9640dd3b339b850baeb549abd}{set\+Position}} (const Vector2 \&new\+Position)
+\begin{DoxyCompactList}\small\item\em Sets the game object\textquotesingle{}s position to the input vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_game_object_a475fb0bf4b62321c40d0a94c8c7c4f74}\label{class_game_object_a475fb0bf4b62321c40d0a94c8c7c4f74}} 
+float {\bfseries get\+Rotation} ()
+\item 
+void \mbox{\hyperlink{class_game_object_a93e7f2e6ceb992f18751b4581539dcea}{set\+Rotation}} (float new\+Rotation)
+\begin{DoxyCompactList}\small\item\em Sets the game object\textquotesingle{}s rotation to the input rotation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_game_object_ad98b347b0815312451a7e613671778f4}\label{class_game_object_ad98b347b0815312451a7e613671778f4}} 
+Vector2 {\bfseries get\+Scale} ()
+\item 
+void \mbox{\hyperlink{class_game_object_a07882d01889f1cf766127737c1d80aa4}{set\+Scale}} (const Vector2 \&new\+Scale)
+\begin{DoxyCompactList}\small\item\em Sets the game object\textquotesingle{}s scale to the input vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_game_object_a913d8f7bf31a6f8e880b28e55cbb7a9b}\label{class_game_object_a913d8f7bf31a6f8e880b28e55cbb7a9b}} 
+Color {\bfseries get\+Color} ()
+\item 
+void \mbox{\hyperlink{class_game_object_a69b170d9b9425f2aac5025d36a1b1d84}{set\+Color}} (const Color \&new\+Color)
+\begin{DoxyCompactList}\small\item\em Sets the game object\textquotesingle{}s sprite color to the input color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_abb25c761a8f604e79abcdffef254d0c1}{set\+Blend\+Mode}} (Blending\+Mode new\+Blend)
+\begin{DoxyCompactList}\small\item\em Sets the blending mode to which the game object\textquotesingle{}s sprite will render by. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_game_object_a78650a2dd6f12569e1563adae19280a9}{Update}} (G\+L\+F\+Wwindow $\ast$window, float Delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates the variables of the game object upon function call. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_game_object_ad3ac1deac50048cf7a1a19eb0e61ad26}{Draw}} ()
+\begin{DoxyCompactList}\small\item\em Renders the game object onto the screen according to its current values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_object_a5cb9796d8fd31751dfd7f0b1b899e6b5}\label{class_game_object_a5cb9796d8fd31751dfd7f0b1b899e6b5}} 
+Vector2 {\bfseries m\+\_\+position}
+\item 
+\mbox{\Hypertarget{class_game_object_a69c4523411c24fd3a4e2b86e748e6742}\label{class_game_object_a69c4523411c24fd3a4e2b86e748e6742}} 
+float {\bfseries m\+\_\+rotation}
+\item 
+\mbox{\Hypertarget{class_game_object_abc4f45e1ec7e12f8f172b1f4470e7657}\label{class_game_object_abc4f45e1ec7e12f8f172b1f4470e7657}} 
+Vector2 {\bfseries m\+\_\+scale}
+\item 
+\mbox{\Hypertarget{class_game_object_ac117fc8efcc2ccb52e6536c87df8fad1}\label{class_game_object_ac117fc8efcc2ccb52e6536c87df8fad1}} 
+\mbox{\hyperlink{class_sprite}{Sprite}} $\ast$ {\bfseries m\+\_\+sprite}
+\item 
+\mbox{\Hypertarget{class_game_object_aaa6d617a585055e7fcba5e0ea8a336b7}\label{class_game_object_aaa6d617a585055e7fcba5e0ea8a336b7}} 
+Matrix {\bfseries Transform\+Matrix}
+\item 
+\mbox{\Hypertarget{class_game_object_a8304138a8f6afe7ad270d9fc5bbe9a17}\label{class_game_object_a8304138a8f6afe7ad270d9fc5bbe9a17}} 
+Matrix {\bfseries Translate\+Matrix}
+\item 
+\mbox{\Hypertarget{class_game_object_a6828d1a2275d27f6336874df4085aea2}\label{class_game_object_a6828d1a2275d27f6336874df4085aea2}} 
+Matrix {\bfseries Rotate\+Matrix}
+\item 
+\mbox{\Hypertarget{class_game_object_a5bfe43f8e7a343eb6c18ed459c410207}\label{class_game_object_a5bfe43f8e7a343eb6c18ed459c410207}} 
+Matrix {\bfseries Scale\+Matrix}
+\item 
+\mbox{\Hypertarget{class_game_object_a1771d24fddc27ba4f1940aaaf8a103eb}\label{class_game_object_a1771d24fddc27ba4f1940aaaf8a103eb}} 
+Color {\bfseries m\+\_\+color} = Color\+::\+White
+\item 
+\mbox{\Hypertarget{class_game_object_aa5824090768e419dd23e738e8df5279a}\label{class_game_object_aa5824090768e419dd23e738e8df5279a}} 
+Blending\+Mode {\bfseries m\+\_\+blend}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_object_ad3ac1deac50048cf7a1a19eb0e61ad26}\label{class_game_object_ad3ac1deac50048cf7a1a19eb0e61ad26}} 
+\index{GameObject@{GameObject}!Draw@{Draw}}
+\index{Draw@{Draw}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Renders the game object onto the screen according to its current values. 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_player_a5b60ad157bb1e8debca89ed6903ca2a4}{Player}}.
+
+\mbox{\Hypertarget{class_game_object_abb25c761a8f604e79abcdffef254d0c1}\label{class_game_object_abb25c761a8f604e79abcdffef254d0c1}} 
+\index{GameObject@{GameObject}!setBlendMode@{setBlendMode}}
+\index{setBlendMode@{setBlendMode}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{setBlendMode()}{setBlendMode()}}
+{\footnotesize\ttfamily void Game\+Object\+::set\+Blend\+Mode (\begin{DoxyParamCaption}\item[{Blending\+Mode}]{new\+Blend }\end{DoxyParamCaption})}
+
+
+
+Sets the blending mode to which the game object\textquotesingle{}s sprite will render by. 
+
+\mbox{\Hypertarget{class_game_object_a69b170d9b9425f2aac5025d36a1b1d84}\label{class_game_object_a69b170d9b9425f2aac5025d36a1b1d84}} 
+\index{GameObject@{GameObject}!setColor@{setColor}}
+\index{setColor@{setColor}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{setColor()}{setColor()}}
+{\footnotesize\ttfamily void Game\+Object\+::set\+Color (\begin{DoxyParamCaption}\item[{const Color \&}]{new\+Color }\end{DoxyParamCaption})}
+
+
+
+Sets the game object\textquotesingle{}s sprite color to the input color. 
+
+\mbox{\Hypertarget{class_game_object_a35ca0ce9640dd3b339b850baeb549abd}\label{class_game_object_a35ca0ce9640dd3b339b850baeb549abd}} 
+\index{GameObject@{GameObject}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Game\+Object\+::set\+Position (\begin{DoxyParamCaption}\item[{const Vector2 \&}]{new\+Position }\end{DoxyParamCaption})}
+
+
+
+Sets the game object\textquotesingle{}s position to the input vector. 
+
+\mbox{\Hypertarget{class_game_object_a93e7f2e6ceb992f18751b4581539dcea}\label{class_game_object_a93e7f2e6ceb992f18751b4581539dcea}} 
+\index{GameObject@{GameObject}!setRotation@{setRotation}}
+\index{setRotation@{setRotation}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{setRotation()}{setRotation()}}
+{\footnotesize\ttfamily void Game\+Object\+::set\+Rotation (\begin{DoxyParamCaption}\item[{float}]{new\+Rotation }\end{DoxyParamCaption})}
+
+
+
+Sets the game object\textquotesingle{}s rotation to the input rotation. 
+
+\mbox{\Hypertarget{class_game_object_a07882d01889f1cf766127737c1d80aa4}\label{class_game_object_a07882d01889f1cf766127737c1d80aa4}} 
+\index{GameObject@{GameObject}!setScale@{setScale}}
+\index{setScale@{setScale}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{setScale()}{setScale()}}
+{\footnotesize\ttfamily void Game\+Object\+::set\+Scale (\begin{DoxyParamCaption}\item[{const Vector2 \&}]{new\+Scale }\end{DoxyParamCaption})}
+
+
+
+Sets the game object\textquotesingle{}s scale to the input vector. 
+
+\mbox{\Hypertarget{class_game_object_a78650a2dd6f12569e1563adae19280a9}\label{class_game_object_a78650a2dd6f12569e1563adae19280a9}} 
+\index{GameObject@{GameObject}!Update@{Update}}
+\index{Update@{Update}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Update (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{float}]{Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Updates the variables of the game object upon function call. 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_player_a3a04da579f90f1b5ca5c683866cb2c61}{Player}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Three\+Comets/\+Game Architecture/\+Game Engine/game\+\_\+engine/Game\+Object.\+h\item 
+D\+:/\+Three\+Comets/\+Game Architecture/\+Game Engine/game\+\_\+engine/Game\+Object.\+cpp\end{DoxyCompactItemize}

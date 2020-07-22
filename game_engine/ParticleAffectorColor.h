@@ -12,6 +12,7 @@ protected:
 
 public:
     ParticleAffectorColor(const Color& Start, const Color& End);
+    void setNewValues(Color newStart, Color newEnd);
     void affectParticleUpdate(ParticleObject* particle) override;
     
 };

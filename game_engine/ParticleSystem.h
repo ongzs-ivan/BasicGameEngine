@@ -34,8 +34,8 @@ private:
 	Vector2 particleAccI;
 	Vector2 particleAccF;
 
-	float emissionRate;
-	float emissionCount;
+	float emissionRate = 0;
+	float emissionCount = 0;
 	float newLife;
 
 	EmitterShape* m_shape = nullptr;

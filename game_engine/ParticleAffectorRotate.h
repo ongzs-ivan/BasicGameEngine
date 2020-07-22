@@ -12,6 +12,7 @@ protected:
 
 public:
 	ParticleAffectorRotate(const float& Start, const float& End);
+	void setNewValues(float newStart, float newEnd);
 	void affectParticleUpdate(ParticleObject* particle) override;
 };
 

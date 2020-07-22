@@ -12,6 +12,7 @@ protected:
 
 public:
     ParticleAffectorScale(const Vector2& Start, const Vector2& End);
+    void setNewValues(Vector2 newStart, Vector2 newEnd);
     void affectParticleUpdate(ParticleObject* particle) override;
 };
 

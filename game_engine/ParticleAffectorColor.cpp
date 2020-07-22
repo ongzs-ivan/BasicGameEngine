@@ -7,6 +7,12 @@ ParticleAffectorColor::ParticleAffectorColor(const Color& Start, const Color& En
 	colorUpdate = Color::White;
 }
 
+void ParticleAffectorColor::setNewValues(Color newStart, Color newEnd)
+{
+	colorStart = newStart;
+	colorEnd = newEnd;
+}
+
 /// <summary>
 /// Updates the particles color to its target color. Transition rate is affected by how much lifespan it has left.
 /// </summary>

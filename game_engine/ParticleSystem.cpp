@@ -3,15 +3,12 @@
 ParticleSystem::ParticleSystem()
 {
 	m_position = Vector2(0, 0);
-	emissionRate = 0;
-	emissionCount = 0;
 }
 
 ParticleSystem::ParticleSystem(const Vector2& newPos, float newRate, Sprite* newSprite)
 {
 	m_position = newPos;
 	emissionRate = newRate;
-	emissionCount = 0;
 	m_sprite = newSprite;
 
 	particleColorI = Color::White;
@@ -26,6 +23,20 @@ ParticleSystem::ParticleSystem(const Vector2& newPos, float newRate, Sprite* new
 	particleAccF = Vector2(0.0f, -100.0f);
 
 	m_shape = new SquareEmitterShape(75.0f, 50.0f);
+	newParticle = new ParticleObject(m_sprite, Vector2(0.0f, 0.0f), 0.0f);
+	newParticle->setScale(particleScaleI);
+	newParticle->setColor(particleColorI);
+	newParticle->setAccel(particleAccI);
+
+	m_scaleAffector = new ParticleAffectorScale(newParticle->getScale(), particleScaleF);
+	m_colorAffector = new ParticleAffectorColor(newParticle->getColor(), particleColorF);
+	m_rotateAffector = new ParticleAffectorRotate(newParticle->getRotation(), particleRotationF);
+	m_gravityAffector = new ParticleAffectorGravity(newParticle->getAccel(), particleAccF);
+
+	addAffector(m_colorAffector);
+	addAffector(m_scaleAffector);
+	addAffector(m_rotateAffector);
+	addAffector(m_gravityAffector);
 }
 
 ParticleSystem::~ParticleSystem()
@@ -46,15 +57,7 @@ void ParticleSystem::createNewParticle()
 	newParticle->setColor(particleColorI);
 	newParticle->setAccel(particleAccI);
 
-	m_scaleAffector		= new ParticleAffectorScale(newParticle->getScale(), particleScaleF);
-	m_colorAffector		= new ParticleAffectorColor(newParticle->getColor(), particleColorF);
-	m_rotateAffector	= new ParticleAffectorRotate(newParticle->getRotation(), particleRotationF);
-	m_gravityAffector	= new ParticleAffectorGravity(newParticle->getAccel(), particleAccF);
 
-	addAffector(m_colorAffector);
-	addAffector(m_scaleAffector);
-	addAffector(m_rotateAffector);
-	addAffector(m_gravityAffector);
 }
 
 /// <summary>
@@ -92,6 +95,10 @@ void ParticleSystem::setAffectorInfo(Color finalColor, Vector2 finalScale, Vecto
 /// </summary>
 void ParticleSystem::Update(float deltaTime)
 {
+	m_colorAffector->setNewValues(particleColorI, particleColorF);
+	m_gravityAffector->setNewValues(particleAccI, particleAccF);
+	m_scaleAffector->setNewValues(particleScaleI, particleScaleF);
+	m_rotateAffector->setNewValues(particleRotationI, particleRotationF);
 
 	// update particle count / add new particle + effects
 	if (emissionCount >= emissionRate)

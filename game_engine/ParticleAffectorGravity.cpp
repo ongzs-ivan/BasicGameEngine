@@ -7,6 +7,12 @@ ParticleAffectorGravity::ParticleAffectorGravity(const Vector2 Start, const Vect
 	accUpdate = Vector2(0.0f, 0.0f);
 }
 
+void ParticleAffectorGravity::setNewValues(Vector2 newStart, Vector2 newEnd)
+{
+	accStart = newStart;
+	accEnd = newEnd;
+}
+
 /// <summary>
 /// Updates the particles acceleration to a target acceeleration. Transition rate is affected by how much lifespan it has left.
 /// </summary>

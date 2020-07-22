@@ -7,6 +7,12 @@ ParticleAffectorScale::ParticleAffectorScale(const Vector2& Start, const Vector2
 	scaleUpdate = Vector2(0.0f, 0.0f);
 }
 
+void ParticleAffectorScale::setNewValues(Vector2 newStart, Vector2 newEnd)
+{
+	scaleStart = newStart;
+	scaleEnd = newEnd;
+}
+
 /// <summary>
 /// Updates the particles color to its target scale. Transition rate is affected by how much lifespan it has left.
 /// </summary>

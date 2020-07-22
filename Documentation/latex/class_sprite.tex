@@ -1,0 +1,59 @@
+\hypertarget{class_sprite}{}\doxysection{Sprite Class Reference}
+\label{class_sprite}\index{Sprite@{Sprite}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sprite_a966d8460b3401ac8fe3af6acd61f6d3f}{Sprite}} (const char $\ast$File)
+\begin{DoxyCompactList}\small\item\em Loads a .bmp image by reading the file address. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sprite_a026508627fae532e9d7b70952c1af7e3}{Draw}} (const Color \&new\+Color, Blending\+Mode blend)
+\begin{DoxyCompactList}\small\item\em Renders the sprite on the screen, according to the color and blending mode that is input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_sprite_a966d8460b3401ac8fe3af6acd61f6d3f}\label{class_sprite_a966d8460b3401ac8fe3af6acd61f6d3f}} 
+\index{Sprite@{Sprite}!Sprite@{Sprite}}
+\index{Sprite@{Sprite}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{Sprite()}{Sprite()}}
+{\footnotesize\ttfamily Sprite\+::\+Sprite (\begin{DoxyParamCaption}\item[{const char $\ast$}]{File }\end{DoxyParamCaption})}
+
+
+
+Loads a .bmp image by reading the file address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em File} & \\
+\hline
+\end{DoxyParams}
+File address that is read. Default file address is located in the base project folder. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sprite_a026508627fae532e9d7b70952c1af7e3}\label{class_sprite_a026508627fae532e9d7b70952c1af7e3}} 
+\index{Sprite@{Sprite}!Draw@{Draw}}
+\index{Draw@{Draw}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Sprite\+::\+Draw (\begin{DoxyParamCaption}\item[{const Color \&}]{new\+Color,  }\item[{Blending\+Mode}]{blend }\end{DoxyParamCaption})}
+
+
+
+Renders the sprite on the screen, according to the color and blending mode that is input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Color} & \\
+\hline
+\end{DoxyParams}
+The color alignment to which the sprite is drawn according to. Setting it to Color\+::\+White outputs the sprites base color, while setting it to Color\+::\+Black outputs no color. 
+\begin{DoxyParams}{Parameters}
+{\em blend} & \\
+\hline
+\end{DoxyParams}
+The type of blending mode that is rendered for the sprite. Can apply three types of blending; Alpha, Add and Multiply. Example input\+: Blending\+Mode\+::\+Alpha 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Three\+Comets/\+Game Architecture/\+Game Engine/game\+\_\+engine/Sprite.\+h\item 
+D\+:/\+Three\+Comets/\+Game Architecture/\+Game Engine/game\+\_\+engine/Sprite.\+cpp\end{DoxyCompactItemize}

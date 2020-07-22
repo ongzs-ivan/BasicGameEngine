@@ -1,0 +1,97 @@
+\hypertarget{class_particle_system}{}\doxysection{Particle\+System Class Reference}
+\label{class_particle_system}\index{ParticleSystem@{ParticleSystem}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_particle_system_ada751aeaec125d403faea6960476bc26}\label{class_particle_system_ada751aeaec125d403faea6960476bc26}} 
+{\bfseries Particle\+System} (const Vector2 \&new\+Pos, float new\+Rate, \mbox{\hyperlink{class_sprite}{Sprite}} $\ast$new\+Sprite)
+\item 
+void \mbox{\hyperlink{class_particle_system_a593284af21a385fc9b7ccccd920828a7}{set\+Emitter\+Type}} (\mbox{\hyperlink{class_emitter_shape}{Emitter\+Shape}} $\ast$new\+Emitter)
+\begin{DoxyCompactList}\small\item\em Set the emitter to the input emitter type. Valid emitter inputs are either Circle, Ring and Square emiter shapes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_system_a6b56b3463a15763d3373453f810b2494}{set\+Particle\+Info}} (Color initial\+Color, Vector2 initial\+Scale, Vector2 initial\+Vel, Vector2 initial\+Acc, float initial\+Rotation)
+\begin{DoxyCompactList}\small\item\em Sets the initial parameters of the particle when it spawns \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_system_ac54552402276d269049f74e3a56f6867}{set\+Affector\+Info}} (Color final\+Color, Vector2 final\+Scale, Vector2 final\+Vel, Vector2 final\+Acc, float final\+Rotation)
+\begin{DoxyCompactList}\small\item\em Sets the target parameters for the particle to transition into \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_system_ad9bce46a570fbf3d33678fc6567a3f35}{Update}} (float delta\+Time)
+\begin{DoxyCompactList}\small\item\em New particles are created at a specific rate (emission\+Rate) and are added into a list for particles. Each particle in the list is then updated until it reaches it\textquotesingle{}s lifespan, whereby it will then be deleted. Particle affectors are then applied to each particle as well. ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_system_a295c20302ae7d821f03c4fe005ae82fb}{Draw}} ()
+\begin{DoxyCompactList}\small\item\em Renders each particle in the particle list onto the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_system_a1381d1efac0a7897c56eb39070c5f1ba}{add\+Affector}} (\mbox{\hyperlink{class_particle_affector}{Particle\+Affector}} $\ast$new\+Affector)
+\begin{DoxyCompactList}\small\item\em Adds a new affector type to the list of particle affectors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_particle_system_a0d811e541055ca6bf7c9aebc4a144cab}\label{class_particle_system_a0d811e541055ca6bf7c9aebc4a144cab}} 
+Vector2 {\bfseries m\+\_\+position}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_particle_system_a1381d1efac0a7897c56eb39070c5f1ba}\label{class_particle_system_a1381d1efac0a7897c56eb39070c5f1ba}} 
+\index{ParticleSystem@{ParticleSystem}!addAffector@{addAffector}}
+\index{addAffector@{addAffector}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{addAffector()}{addAffector()}}
+{\footnotesize\ttfamily void Particle\+System\+::add\+Affector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_particle_affector}{Particle\+Affector}} $\ast$}]{new\+Affector }\end{DoxyParamCaption})}
+
+
+
+Adds a new affector type to the list of particle affectors 
+
+\mbox{\Hypertarget{class_particle_system_a295c20302ae7d821f03c4fe005ae82fb}\label{class_particle_system_a295c20302ae7d821f03c4fe005ae82fb}} 
+\index{ParticleSystem@{ParticleSystem}!Draw@{Draw}}
+\index{Draw@{Draw}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Particle\+System\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Renders each particle in the particle list onto the screen. 
+
+\mbox{\Hypertarget{class_particle_system_ac54552402276d269049f74e3a56f6867}\label{class_particle_system_ac54552402276d269049f74e3a56f6867}} 
+\index{ParticleSystem@{ParticleSystem}!setAffectorInfo@{setAffectorInfo}}
+\index{setAffectorInfo@{setAffectorInfo}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{setAffectorInfo()}{setAffectorInfo()}}
+{\footnotesize\ttfamily void Particle\+System\+::set\+Affector\+Info (\begin{DoxyParamCaption}\item[{Color}]{final\+Color,  }\item[{Vector2}]{final\+Scale,  }\item[{Vector2}]{final\+Vel,  }\item[{Vector2}]{final\+Acc,  }\item[{float}]{final\+Rotation }\end{DoxyParamCaption})}
+
+
+
+Sets the target parameters for the particle to transition into 
+
+\mbox{\Hypertarget{class_particle_system_a593284af21a385fc9b7ccccd920828a7}\label{class_particle_system_a593284af21a385fc9b7ccccd920828a7}} 
+\index{ParticleSystem@{ParticleSystem}!setEmitterType@{setEmitterType}}
+\index{setEmitterType@{setEmitterType}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{setEmitterType()}{setEmitterType()}}
+{\footnotesize\ttfamily void Particle\+System\+::set\+Emitter\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_emitter_shape}{Emitter\+Shape}} $\ast$}]{new\+Emitter }\end{DoxyParamCaption})}
+
+
+
+Set the emitter to the input emitter type. Valid emitter inputs are either Circle, Ring and Square emiter shapes. 
+
+\mbox{\Hypertarget{class_particle_system_a6b56b3463a15763d3373453f810b2494}\label{class_particle_system_a6b56b3463a15763d3373453f810b2494}} 
+\index{ParticleSystem@{ParticleSystem}!setParticleInfo@{setParticleInfo}}
+\index{setParticleInfo@{setParticleInfo}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{setParticleInfo()}{setParticleInfo()}}
+{\footnotesize\ttfamily void Particle\+System\+::set\+Particle\+Info (\begin{DoxyParamCaption}\item[{Color}]{initial\+Color,  }\item[{Vector2}]{initial\+Scale,  }\item[{Vector2}]{inital\+Vel,  }\item[{Vector2}]{initial\+Acc,  }\item[{float}]{initial\+Rotation }\end{DoxyParamCaption})}
+
+
+
+Sets the initial parameters of the particle when it spawns 
+
+\mbox{\Hypertarget{class_particle_system_ad9bce46a570fbf3d33678fc6567a3f35}\label{class_particle_system_ad9bce46a570fbf3d33678fc6567a3f35}} 
+\index{ParticleSystem@{ParticleSystem}!Update@{Update}}
+\index{Update@{Update}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Particle\+System\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})}
+
+
+
+New particles are created at a specific rate (emission\+Rate) and are added into a list for particles. Each particle in the list is then updated until it reaches it\textquotesingle{}s lifespan, whereby it will then be deleted. Particle affectors are then applied to each particle as well. ~\newline
+ 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Three\+Comets/\+Game Architecture/\+Game Engine/game\+\_\+engine/Particle\+System.\+h\item 
+D\+:/\+Three\+Comets/\+Game Architecture/\+Game Engine/game\+\_\+engine/Particle\+System.\+cpp\end{DoxyCompactItemize}

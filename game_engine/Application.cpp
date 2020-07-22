@@ -54,7 +54,7 @@ void Application::Start()
 	particleSystem1->setAffectorInfo(Color::Black, Vector2(0.25f, 0.25f), Vector2(rand() % 200 - 100, rand() % 150 - 100),Vector2(0.0f, -100.0f), 90.0f);
 
 	particleSystem2->setParticleInfo(Color::Yellow, Vector2(1.0f, 1.0f), Vector2(rand() % 50 - 10, rand() % 50 - 10), Vector2(0.0f, -9.81f), 0.0f);
-	particleSystem2->setAffectorInfo(Color::Green, Vector2(0.5f, 0.5f), Vector2(rand() % 70 - 50, rand() % 70 - 50), Vector2(0.0f, -100.0f), 90.0f);
+	particleSystem2->setAffectorInfo(Color(0.2f, 0.5f, 0.5f, 1.0f), Vector2(0.5f, 0.5f), Vector2(rand() % 70 - 50, rand() % 70 - 50), Vector2(0.0f, -100.0f), float(rand()%180 + 90));
 
 	particleSystem3->setParticleInfo(Color::White, Vector2(1.0f, 1.0f), Vector2(rand() % 20 - 10, rand() % 20 - 10), Vector2(0.0f, -9.81f), 0.0f);
 	particleSystem3->setAffectorInfo(Color::Black, Vector2(0.8f, 0.8f), Vector2(rand() % 30 - 20, rand() % 30 - 20), Vector2(0.0f, -20.0f), float(rand() % 360 - 180));

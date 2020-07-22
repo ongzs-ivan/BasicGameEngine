@@ -1,0 +1,55 @@
+\hypertarget{class_particle_affector_gravity}{}\doxysection{Particle\+Affector\+Gravity Class Reference}
+\label{class_particle_affector_gravity}\index{ParticleAffectorGravity@{ParticleAffectorGravity}}
+Inheritance diagram for Particle\+Affector\+Gravity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_particle_affector_gravity}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_particle_affector_gravity_ad1e1d012b9436e7a80be4b936758642d}\label{class_particle_affector_gravity_ad1e1d012b9436e7a80be4b936758642d}} 
+{\bfseries Particle\+Affector\+Gravity} (const Vector2 Start, const Vector2 End)
+\item 
+\mbox{\Hypertarget{class_particle_affector_gravity_aff09419f1b22455a0354b9a9c8032429}\label{class_particle_affector_gravity_aff09419f1b22455a0354b9a9c8032429}} 
+void {\bfseries set\+New\+Values} (Vector2 new\+Start, Vector2 new\+End)
+\item 
+void \mbox{\hyperlink{class_particle_affector_gravity_acdc33cc5d5b6c6b566be7c88d5942046}{affect\+Particle\+Update}} (\mbox{\hyperlink{class_particle_object}{Particle\+Object}} $\ast$particle) override
+\begin{DoxyCompactList}\small\item\em Updates the particles acceleration to a target acceeleration. Transition rate is affected by how much lifespan it has left. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_particle_affector_gravity_adfafe68cdb42714168a8b14e92cbc1a1}\label{class_particle_affector_gravity_adfafe68cdb42714168a8b14e92cbc1a1}} 
+Vector2 {\bfseries acc\+Start}
+\item 
+\mbox{\Hypertarget{class_particle_affector_gravity_a57bb84f3f0e23136a4bf0c4de9a8afe5}\label{class_particle_affector_gravity_a57bb84f3f0e23136a4bf0c4de9a8afe5}} 
+Vector2 {\bfseries acc\+End}
+\item 
+\mbox{\Hypertarget{class_particle_affector_gravity_a00a50b6201910e22a6cc9a5eae828c87}\label{class_particle_affector_gravity_a00a50b6201910e22a6cc9a5eae828c87}} 
+Vector2 {\bfseries acc\+Update}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_particle_affector_gravity_acdc33cc5d5b6c6b566be7c88d5942046}\label{class_particle_affector_gravity_acdc33cc5d5b6c6b566be7c88d5942046}} 
+\index{ParticleAffectorGravity@{ParticleAffectorGravity}!affectParticleUpdate@{affectParticleUpdate}}
+\index{affectParticleUpdate@{affectParticleUpdate}!ParticleAffectorGravity@{ParticleAffectorGravity}}
+\doxysubsubsection{\texorpdfstring{affectParticleUpdate()}{affectParticleUpdate()}}
+{\footnotesize\ttfamily void Particle\+Affector\+Gravity\+::affect\+Particle\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_particle_object}{Particle\+Object}} $\ast$}]{particle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the particles acceleration to a target acceeleration. Transition rate is affected by how much lifespan it has left. 
+
+
+
+Implements \mbox{\hyperlink{class_particle_affector}{Particle\+Affector}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Three\+Comets/\+Game Architecture/\+Game Engine/game\+\_\+engine/Particle\+Affector\+Gravity.\+h\item 
+D\+:/\+Three\+Comets/\+Game Architecture/\+Game Engine/game\+\_\+engine/Particle\+Affector\+Gravity.\+cpp\end{DoxyCompactItemize}

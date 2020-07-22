@@ -6,6 +6,13 @@ ParticleAffectorRotate::ParticleAffectorRotate(const float& Start, const float& 
 	rotateEnd = End;
 	rotateUpdate = 0;
 }
+
+void ParticleAffectorRotate::setNewValues(float newStart, float newEnd)
+{
+	rotateStart = newStart;
+	rotateEnd = newEnd;
+}
+
 /// <summary>
 /// Updates the particles color to its target rotation. Transition rate is affected by how much lifespan it has left.
 /// </summary>
