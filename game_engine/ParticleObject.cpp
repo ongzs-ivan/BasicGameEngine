@@ -16,11 +16,17 @@ ParticleObject::~ParticleObject()
 {
 }
 
+/// <summary>
+/// Sets the acceleration of the particle to the input vector
+/// </summary>
 void ParticleObject::setAccel(Vector2 newAccel)
 {
 	m_accel = newAccel;
 }
 
+/// <summary>
+/// Updates the variables of the game object upon function call.
+/// </summary>
 void ParticleObject::Update(float deltaTime)
 {
 	// Apply acceleration (if any)

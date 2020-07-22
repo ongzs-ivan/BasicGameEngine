@@ -6,6 +6,10 @@ ParticleAffectorScale::ParticleAffectorScale(const Vector2& Start, const Vector2
 	scaleEnd = End;
 	scaleUpdate = Vector2(0.0f, 0.0f);
 }
+
+/// <summary>
+/// Updates the particles color to its target scale. Transition rate is affected by how much lifespan it has left.
+/// </summary>
 void ParticleAffectorScale::affectParticleUpdate(ParticleObject* particle)
 {
 	percentage = particle->m_life / particle->m_lifeMax;

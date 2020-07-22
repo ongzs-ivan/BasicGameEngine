@@ -81,6 +81,9 @@
     <ClCompile Include="RingEmitterShape.cpp">
       <Filter>Source Files\EmitterShape</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util\bitmap.h">
@@ -142,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="RingEmitterShape.h">
       <Filter>Header Files\EmitterShape</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

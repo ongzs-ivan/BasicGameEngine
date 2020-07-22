@@ -29,12 +29,13 @@ private:
 	Vector2 particleScaleF;
 	float particleRotationI;
 	float particleRotationF;
+	Vector2 particleVelI;
+	Vector2 particleVelF;
 	Vector2 particleAccI;
 	Vector2 particleAccF;
 
 	float emissionRate;
 	float emissionCount;
-	Vector2 newVel;
 	float newLife;
 
 	EmitterShape* m_shape = nullptr;
@@ -53,8 +54,8 @@ public:
 	~ParticleSystem();
 
 	void setEmitterType(EmitterShape* newEmitter);
-	void setParticleInfo(Color initialColor, Vector2 initialScale, Vector2 initialAcc, float initialRotation);
-	void setAffectorInfo(Color finalColor, Vector2 finalScale, Vector2 finalAcc, float finalRotation);
+	void setParticleInfo(Color initialColor, Vector2 initialScale, Vector2 initialVel, Vector2 initialAcc, float initialRotation);
+	void setAffectorInfo(Color finalColor, Vector2 finalScale, Vector2 finalVel, Vector2 finalAcc, float finalRotation);
 
 	void Update(float deltaTime);
 	void Draw();

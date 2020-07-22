@@ -13,5 +13,6 @@ public:
 	static Color Red;
 	static Color Green;
 	static Color Blue;
+	static Color Yellow;
 };
 

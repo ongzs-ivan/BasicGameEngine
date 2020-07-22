@@ -7,7 +7,9 @@ ParticleAffectorColor::ParticleAffectorColor(const Color& Start, const Color& En
 	colorUpdate = Color::White;
 }
 
-
+/// <summary>
+/// Updates the particles color to its target color. Transition rate is affected by how much lifespan it has left.
+/// </summary>
 void ParticleAffectorColor::affectParticleUpdate(ParticleObject* particle)
 {
 	percentage = particle->m_life / particle->m_lifeMax;

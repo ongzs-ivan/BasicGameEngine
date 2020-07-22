@@ -20,6 +20,8 @@ ParticleSystem::ParticleSystem(const Vector2& newPos, float newRate, Sprite* new
 	particleScaleF = Vector2(0.25f, 0.25f);
 	particleRotationI = 0.0f;
 	particleRotationF = 450.0f;
+	particleVelI = Vector2(0.0f, 0.0f);
+	particleVelF = Vector2(0.0f, 0.0f);
 	particleAccI = Vector2(0.0f, -9.81f);
 	particleAccF = Vector2(0.0f, -100.0f);
 
@@ -33,10 +35,9 @@ ParticleSystem::~ParticleSystem()
 
 void ParticleSystem::createNewParticle()
 {
-	newVel = Vector2(rand() % 200 - 100, rand() % 125 - 100);
 	newLife = rand() % 3 + 1;
 
-	newParticle = new ParticleObject(m_sprite, newVel, newLife);
+	newParticle = new ParticleObject(m_sprite, particleVelI, newLife);
 	newParticle->setBlendMode(BlendingMode::Add);
 
 	newParticle->setPosition(m_shape->getParticleEmissionPos(&m_position));
@@ -56,12 +57,18 @@ void ParticleSystem::createNewParticle()
 	addAffector(m_gravityAffector);
 }
 
+/// <summary>
+/// Set the emitter to the input emitter type. Valid emitter inputs are either Circle, Ring and Square emiter shapes.
+/// </summary>
 void ParticleSystem::setEmitterType(EmitterShape* newEmitter)
 {
 	m_shape = newEmitter;
 }
 
-void ParticleSystem::setParticleInfo(Color initialColor, Vector2 initialScale, Vector2 initialAcc, float initialRotation)
+/// <summary>
+/// Sets the initial parameters of the particle when it spawns
+/// </summary>
+void ParticleSystem::setParticleInfo(Color initialColor, Vector2 initialScale, Vector2 initalVel, Vector2 initialAcc, float initialRotation)
 {
 	particleColorI = initialColor;
 	particleScaleI = initialScale;
@@ -69,7 +76,10 @@ void ParticleSystem::setParticleInfo(Color initialColor, Vector2 initialScale, V
 	particleRotationI = initialRotation;
 }
 
-void ParticleSystem::setAffectorInfo(Color finalColor, Vector2 finalScale, Vector2 finalAcc, float finalRotation)
+/// <summary>
+/// Sets the target parameters for the particle to transition into
+/// </summary>
+void ParticleSystem::setAffectorInfo(Color finalColor, Vector2 finalScale, Vector2 finalVel, Vector2 finalAcc, float finalRotation)
 {
 	particleColorF = finalColor;
 	particleScaleF = finalScale;
@@ -77,6 +87,9 @@ void ParticleSystem::setAffectorInfo(Color finalColor, Vector2 finalScale, Vecto
 	particleRotationF = finalRotation;
 }
 
+/// <summary>
+/// New particles are created at a specific rate (emissionRate) and are added into a list for particles. Each particle in the list is then updated until it reaches it's lifespan, whereby it will then be deleted. Particle affectors are then applied to each particle as well.  
+/// </summary>
 void ParticleSystem::Update(float deltaTime)
 {
 
@@ -124,8 +137,9 @@ void ParticleSystem::Update(float deltaTime)
 	}
 }
 
-
-
+/// <summary>
+/// Renders each particle in the particle list onto the screen.
+/// </summary>
 void ParticleSystem::Draw()
 {
 	std::list<ParticleObject*>::iterator iter = m_particleList.begin();
@@ -137,6 +151,9 @@ void ParticleSystem::Draw()
 	}
 }
 
+/// <summary>
+/// Adds a new affector type to the list of particle affectors
+/// </summary>
 void ParticleSystem::addAffector(ParticleAffector* newAffector)
 {
 	m_affectorList.push_back(newAffector);

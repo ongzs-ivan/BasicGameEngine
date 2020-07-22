@@ -60,7 +60,7 @@ void initFmod()
 	ERRCHECK(result);
 
 	// load and set up music
-	result = m_fmodSystem->createStream("../media/ISAJI - Yaranaika.mp3", FMOD_SOFTWARE, 0, &m_music);
+	result = m_fmodSystem->createStream("../media/FTP.mp3", FMOD_SOFTWARE, 0, &m_music);
 	ERRCHECK(result);
 
 	// play the loaded mp3 music
@@ -71,7 +71,7 @@ void initFmod()
 	m_musicChannel->setLoopCount(0);
 
 	// set sound volume
-	m_musicChannel->setVolume(0.25f);
+	m_musicChannel->setVolume(0.75f);
 }	
 
 void updateFmod()

@@ -7,12 +7,20 @@ RingEmitterShape::RingEmitterShape(float initialInner, float initialOuter)
 	temp = Vector(0.0f, 0.0f, 0.0f);
 }
 
+/// <summary>
+/// Sets the size of the emitter according to the input size.
+/// </summary>
+/// <param name="newInner"></param> Inner radius of the ring
+/// <param name="newOuter"></param> Outer radius of the ring
 void RingEmitterShape::setRingSize(float newInner, float newOuter)
 {
 	innerRadius = newInner;
 	outerRadius = newOuter;
 }
 
+/// <summary>
+/// Returns a randomized Vector location in the emitter's shape.
+/// </summary>
 Vector2 RingEmitterShape::getParticleEmissionPos(Vector2* particleSystemPos)
 {
 	angle = 2 * M_PI * RandomNumber();

@@ -152,6 +152,7 @@
     <ClCompile Include="ParticleAffectorScale.cpp" />
     <ClCompile Include="ParticleObject.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="RingEmitterShape.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SquareEmitterShape.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="ParticleAffectorScale.h" />
     <ClInclude Include="ParticleObject.h" />
     <ClInclude Include="ParticleSystem.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="RingEmitterShape.h" />
     <ClInclude Include="ScreenRes.h" />
     <ClInclude Include="Sprite.h" />

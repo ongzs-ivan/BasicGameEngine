@@ -7,6 +7,9 @@ ParticleAffectorGravity::ParticleAffectorGravity(const Vector2 Start, const Vect
 	accUpdate = Vector2(0.0f, 0.0f);
 }
 
+/// <summary>
+/// Updates the particles acceleration to a target acceeleration. Transition rate is affected by how much lifespan it has left.
+/// </summary>
 void ParticleAffectorGravity::affectParticleUpdate(ParticleObject* particle)
 {
 	percentage = particle->m_life / particle->m_lifeMax;

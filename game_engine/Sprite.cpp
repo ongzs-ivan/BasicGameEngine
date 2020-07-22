@@ -7,6 +7,11 @@ Sprite::Sprite()
 	SpriteTextureID = 0;
 }
 
+/// <summary>
+/// Loads a .bmp image by reading the file address.
+/// </summary>
+/// <param name="File"></param> File address that is read. Default file address is located in the base project folder.
+/// <returns></returns>
 Sprite::Sprite(const char* File)
 {
 	CBitmap bitmap(File);
@@ -34,6 +39,11 @@ Sprite::~Sprite()
 {
 }
 
+/// <summary>
+/// Renders the sprite on the screen, according to the color and blending mode that is input.
+/// </summary>
+/// <param name="newColor"></param> The color alignment to which the sprite is drawn according to. Setting it to Color::White outputs the sprites base color, while setting it to Color::Black outputs no color.
+/// <param name="blend"></param> The type of blending mode that is rendered for the sprite. Can apply three types of blending; Alpha, Add and Multiply. Example input: BlendingMode::Alpha
 void Sprite::Draw(const Color& newColor, BlendingMode blend)
 {
 	float HalfWidth = SpriteWidth / 2.f;

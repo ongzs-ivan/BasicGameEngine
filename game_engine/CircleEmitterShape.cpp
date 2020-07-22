@@ -6,11 +6,18 @@ CircleEmitterShape::CircleEmitterShape(float initialSize)
 	radius = initialSize;
 }
 
+/// <summary>
+/// Sets the size of the emitter according to the input size.
+/// </summary>
+/// <param name="size"></param> Radius of the circle.
 void CircleEmitterShape::setCircleSize(float size)
 {
 	radius = size;
 }
 
+/// <summary>
+/// Returns a randomized Vector location in the emitter's shape.
+/// </summary>
 Vector2 CircleEmitterShape::getParticleEmissionPos(Vector2* particleSystemPos)
 {
 	angle = 2 * M_PI * RandomNumber();

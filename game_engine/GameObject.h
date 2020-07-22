@@ -36,8 +36,8 @@ public:
 
 	void setBlendMode(BlendingMode newBlend);
 
-	void Update(float DeltaTime);
-	void Draw();
+	virtual void Update(GLFWwindow* window, float DeltaTime);
+	virtual void Draw();
 };
 
 #endif
